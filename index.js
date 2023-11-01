@@ -8,7 +8,11 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 
-
+const corsConfig = {
+  origin: '',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}
 
 app.use(cors({
   origin: [
@@ -18,7 +22,8 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(cors(corsConfig));
 
 
 
